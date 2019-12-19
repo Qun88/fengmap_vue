@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="./fengmap.min.js"></script>
+    <script>
+
+        let _map;
+
+        window.onload = function () {
+            var map = initinalization();
+            map.openMapById('huolicheng1');
+        }
+
+        function initinalization() {
+            var _start = Date.parse(new Date());
+            if (_map) {
+                _map.dispose();
+                _map = null;
+            }
+
+            _map = new fengmap.FMMap({
+                container: document.getElementById("container"),
+                appName: "猫库调用",
+                key: "6c460ceb1c19e6a69aeb9771c25c2492"
+            });
+            _map.openMapById("90870");
+            _map.on("loadComplete", function () {
+                var _complete = Date.parse(new Date());
+                //alert(_complete - _start);
+            });
+            return _map;
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+</body>
+
+</html>
